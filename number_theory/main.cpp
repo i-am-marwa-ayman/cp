@@ -14,23 +14,27 @@
 #define endl "\n"
 #define esle else
 using namespace std;
-const long long N = 1e12 + 1;
+const long long N = 2e6;
 
 bool not_prime[N];
 vector<long long> primes;
-void seives(long long n){
+vector<long long> prime_divisor(N);
+void sieves(long long n)
+{
     not_prime[0] = 1;
     not_prime[1] = 1;
     for (long long i = 2; i * i <= n; i++)
     {
         if(not_prime[i] == 0){
+            prime_divisor[i] = i;
             for (long long j = i * i; j <= n; j += i)
             {
                 not_prime[j] = 1;
+                prime_divisor[j] = i;
             }
         }
     }
-    for (size_t i = 0; i <= n; i++)
+    for (long long i = 0; i <= n; i++)
     {
         if(not_prime[i] == 0)
             primes.push_back(i);
@@ -90,13 +94,19 @@ int trailling_zeros(long long n){
 }
 
 void solve(){
-
+    long long n;
+    cin >> n;
+    while(n > 1){
+        cout << prime_divisor[n] << endl;
+        n /= prime_divisor[n];
+    }
 }
 
 int main(){
     mr prince;
     int tc = 1;
     //cin >> tc;
+    sieves(1e6);
     while(tc--){
         solve();
     }
