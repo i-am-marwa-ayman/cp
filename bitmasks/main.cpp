@@ -18,11 +18,11 @@
 #define ll long long 
 using namespace std;
 
-vector<bool> ll_to_binary(ll n){
-    vector<bool> binary_rep;
+string ll_to_binary(ll n){
+    string binary_rep = "";
     while(n > 0){
-        binary_rep.push_back(n % 2);
-        n /= 2;
+      binary_rep += to_string(n % 2);
+      n /= 2;
     }
     reverse(binary_rep.begin(), binary_rep.end());
     return binary_rep;
@@ -44,6 +44,18 @@ ll to_off(ll n, int k){
 }
 ll flip_bit(ll n,int k){
   return (n ^ ((ll)1 << k));
+}
+int count_ones(ll n){
+  // when we & n with n - 1 we off the first on bit
+  int count = 0;
+  while(n){
+    n &= (n - 1);
+    count++;
+  }
+  return count;
+}
+bool is_pow_of_two(ll n){
+  return (!(n & (n - 1)) && n != 0);
 }
 void solve()
 {
