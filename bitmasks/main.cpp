@@ -19,13 +19,13 @@
 using namespace std;
 
 string ll_to_binary(ll n){
-    string binary_rep = "";
+    string binary_number = "";
     while(n > 0){
-      binary_rep += to_string(n % 2);
+      binary_number += to_string(n % 2);
       n /= 2;
     }
-    reverse(binary_rep.begin(), binary_rep.end());
-    return binary_rep;
+    reverse(binary_number.begin(), binary_number.end());
+    return binary_number;
 }
 ll fast_pow_two(int k){
   return ((ll)1 << k);
