@@ -87,11 +87,11 @@ bool is_DAG(int nodes){
     return 1;
 }
 /*
+only dag has a vaild topological_sorting means not having circles
 sort directed graph based on logical order (who came first)
-like what you should study first if you have to finish x to start y
+have to finish x to start y
 y depens on x in other word (y -> x)
 you have to iterate for all nodes what if there a other cc
-if the graph is cyclic there is no way to sort them
 */
 void topological_sorting(int node){
     visited[node] = 1;
