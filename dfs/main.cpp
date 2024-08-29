@@ -92,6 +92,8 @@ sort directed graph based on logical order (who came first)
 have to finish x to start y
 y depens on x in other word (y -> x)
 you have to iterate for all nodes what if there a other cc
+
+note if you are given x -> y (you have to finish x to start y) just do the normal code then reverse the output
 */
 void topological_sorting(int node){
     visited[node] = 1;
